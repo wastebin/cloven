@@ -3,7 +3,7 @@ CX = g++
 AR = ar
 
 CFLAGS += -Wall -Wextra -Wfatal-errors -pedantic -std=iso9899:2017
-CXXFLAGS += -Wall -Wextra -Wfatal-errors -pedantic -std=iso9899:2017
+CXXFLAGS += -Wall -Wextra -Wfatal-errors -pedantic -std=c++17
 
 ifeq (@(BUILD),debug)
 	CFLAGS += -ggdb

@@ -1,6 +1,6 @@
 include_rules
 
 : foreach src/* |> !vs |> build/%b
-: foreach build/*.h |> !hc |> {gchs}
-: foreach build/*.c {gchs} |> !cc |> build/%B.o
-: build/*.o |> !lc |> dist/cloven
+: foreach build/*.hh |> !hx |> {gchs}
+: foreach build/*.cc | {gchs} |> !cx |> build/%B.o
+: build/*.o |> !lx |> dist/cloven

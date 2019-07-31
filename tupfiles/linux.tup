@@ -2,8 +2,8 @@ CC = gcc
 CX = g++
 AR = ar
 
-CFLAGS += -Wall -Wextra -Wfatal-errors -pedantic -std=iso9899:2017
-CXXFLAGS += -Wall -Wextra -Wfatal-errors -pedantic -std=c++17
+CFLAGS += -Wall -Wextra -Wno-missing-field-initializers -Wfatal-errors -pedantic -std=c2x
+CXXFLAGS += -Wall -Wextra -Wno-missing-field-initializers -Wfatal-errors -pedantic -std=c++2a
 
 ifeq (@(BUILD),debug)
 	CFLAGS += -ggdb

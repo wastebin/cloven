@@ -1,0 +1,33 @@
+ifdef @(PLAT)
+PLAT = @(PLAT)
+else
+PLAT = @(TUP_PLATFORM)
+endif
+
+ifdef @(ARCH)
+ARCH = @(ARCH)
+else
+ARCH = @(TUP_ARCH)
+endif
+
+include tupfiles/$(PLAT).tup
+include tupfiles/$(PLAT)/$(ARCH).tup
+
+NAME = dist/$(CONFIG_NAME)
+
+CPPFLAGS = $(CPPFLAGS)
+CXXFLAGS = $(CXXFLAGS)
+
+CXXFLAGS += -Wall -Wfatal-errors
+
+!cp = |> ^ CP %o^ cp %f %o |>
+!vs = |> ^ VS %f^ tup varsed %f %o |>
+
+!hc = |> ^ HC %f^ $(CC) $(CPPFLAGS) -x c-header -c %f |> %f.gch
+!hx = |> ^ HC %f^ $(CX) $(CPPFLAGS) -x c++-header -c %f |> %f.gch
+!cc = |> ^ CC %f^ $(CC) $(CPPFLAGS) $(CFLAGS) -c -o %o %f |> %B.o
+!cx = |> ^ XC %f^ $(CX) $(CPPFLAGS) $(CXXFLAGS) -c -o %o %f |> %B.o
+!lc = |> ^ LD %o^ $(CC) $(LDFLAGS) %f -o %o |>
+!lx = |> ^ LD %o^ $(CX) $(LDFLAGS) %f -o %o |>
+
+!ar = |> ^ AR %o^ $(AR) crs %o %f |>

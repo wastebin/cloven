@@ -1,0 +1,18 @@
+CC = gcc
+CX = g++
+AR = ar
+
+CFLAGS += -Wall -Wextra -pedantic
+CXXFLAGS += -Wall -Wextra -pedantic
+
+ifeq (@(BUILD),debug)
+	CFLAGS += -ggdb
+	else
+	ifeq (@(BUILD),plain)
+		# do nothing
+		else
+		ifeq (@(BUILD),optim)
+			CFLAGS += -O3
+		endif
+	endif
+endif

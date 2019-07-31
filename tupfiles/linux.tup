@@ -2,8 +2,8 @@ CC = gcc
 CX = g++
 AR = ar
 
-CFLAGS += -Wall -Wextra -pedantic
-CXXFLAGS += -Wall -Wextra -pedantic
+CFLAGS += -Wall -Wextra -Wfatal-errors -pedantic
+CXXFLAGS += -Wall -Wextra -Wfatal-errors -pedantic
 
 ifeq (@(BUILD),debug)
 	CFLAGS += -ggdb
